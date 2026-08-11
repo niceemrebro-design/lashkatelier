@@ -1,0 +1,1527 @@
+/* ==========================================================================
+   Lash Katelier
+   Gestaltung: das Atelier, nicht der Salon. Werkstattbuch-Typografie,
+   Haarlinien, Massangaben. Ruhige Fläche, ein einziger Akzent (Granat).
+   Inhaltsverzeichnis
+     01  Tokens
+     02  Reset & Basis
+     03  Typografie-Bausteine
+     04  Layout
+     05  Buttons
+     06  Kopfzeile & Navigation
+     07  Hero & Lash Map
+     08  Leistungen (Datenblatt)
+     09  Preisliste
+     10  Ablauf
+     11  Pflege
+     12  Atelier & Bildrahmen
+     13  FAQ
+     14  Kontakt & Formular
+     15  Fusszeile
+     16  Rechtstexte
+     17  Bewegung
+   ========================================================================== */
+
+/* 01 — Tokens ============================================================= */
+
+:root {
+  /* Helle Palette: Porzellan mit minimalem Violettstich, Granat als Akzent */
+  --porcelain: #f2f1f3;
+  --paper: #fbfafc;
+  --paper-sunk: #ecebee;
+  --ink: #16141a;
+  --graphite: #625c69;
+  --hairline: #dedae2;
+  --hairline-soft: #e8e5ea;
+  --garnet: #6b2f44;
+  --garnet-hover: #552536;
+  --garnet-tint: #ece0e4;
+  --on-garnet: #fbf7f8;
+
+  --bg: var(--porcelain);
+  --surface: var(--paper);
+  --text: var(--ink);
+  --text-muted: var(--graphite);
+  --accent: var(--garnet);
+  --accent-tint: var(--garnet-tint);
+  --shadow: 0 1px 2px rgba(22, 20, 26, 0.04), 0 12px 32px rgba(22, 20, 26, 0.06);
+
+  /* Schrift */
+  --font-display: "Bodoni Moda", "Didot", "Bodoni MT", Georgia, serif;
+  --font-sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Fliessende Typo-Skala, Verhältnis ~1.25 */
+  --t-micro: 0.6875rem;
+  --t-small: 0.8125rem;
+  --t-body: clamp(1rem, 0.97rem + 0.14vw, 1.0625rem);
+  --t-lede: clamp(1.125rem, 1.05rem + 0.38vw, 1.3125rem);
+  --t-h3: clamp(1.25rem, 1.14rem + 0.5vw, 1.5rem);
+  --t-h2: clamp(1.875rem, 1.5rem + 1.6vw, 2.875rem);
+  /* Obergrenze so gewählt, dass "Millimeterarbeit" (0,72 × Schriftgrad je
+     Zeichenzug ≈ 516 px) in die 556 px breite Hero-Spalte passt. */
+  --t-h1: clamp(2.75rem, 1.7rem + 4.4vw, 4.5rem);
+
+  /* Raster */
+  --shell: 74rem;
+  --measure: 62ch;
+  --gap: clamp(1.5rem, 3vw, 2.5rem);
+  --band-space: clamp(3.75rem, 8vw, 7rem);
+  --radius: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --porcelain: #131117;
+    --paper: #1a171f;
+    --paper-sunk: #100e14;
+    --ink: #eeebf1;
+    --graphite: #9d96a4;
+    --hairline: #2d2834;
+    --hairline-soft: #241f2a;
+    --garnet: #c98b9d;
+    --garnet-hover: #dda5b5;
+    --garnet-tint: #2a1c23;
+    --on-garnet: #161013;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --porcelain: #131117;
+  --paper: #1a171f;
+  --paper-sunk: #100e14;
+  --ink: #eeebf1;
+  --graphite: #9d96a4;
+  --hairline: #2d2834;
+  --hairline-soft: #241f2a;
+  --garnet: #c98b9d;
+  --garnet-hover: #dda5b5;
+  --garnet-tint: #2a1c23;
+  --on-garnet: #161013;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* 02 — Reset & Basis ====================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: from-font;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-garnet);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: 0;
+}
+
+/* 03 — Typografie-Bausteine =============================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  /* Ohne dies zieht text-wrap: balance die weichen Trennstellen (&shy;) in
+     den Überschriften auch dann heran, wenn das Wort in die Zeile passt. */
+  hyphens: none;
+  margin: 0;
+}
+
+/* Auf schmalen Geräten passt kein deutsches Kompositum mehr in eine Zeile
+   ("Millimeterarbeit", "Wimpernverlängerung") — dort wird getrennt. */
+@media (max-width: 30em) {
+  h1,
+  h2,
+  h3 {
+    hyphens: auto;
+  }
+}
+
+h1 {
+  font-size: var(--t-h1);
+}
+
+h2 {
+  font-size: var(--t-h2);
+}
+
+h3 {
+  font-size: var(--t-h3);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.eyebrow--accent {
+  color: var(--accent);
+}
+
+.lede {
+  font-size: var(--t-lede);
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: var(--on-garnet);
+  font-size: var(--t-small);
+  transition: top 0.18s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* 04 — Layout ============================================================= */
+
+.shell {
+  width: min(100% - 2.5rem, var(--shell));
+  margin-inline: auto;
+}
+
+@media (min-width: 48em) {
+  .shell {
+    width: min(100% - 5rem, var(--shell));
+  }
+}
+
+.band {
+  border-top: 1px solid var(--hairline);
+  padding-block: var(--band-space);
+}
+
+.band--sunk {
+  background: var(--paper-sunk);
+}
+
+/* Zweispaltiges Werkstattbuch-Raster: schmale Marginalie, breite Spalte */
+.layout {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 62em) {
+  .layout {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    column-gap: clamp(2.5rem, 6vw, 5rem);
+    row-gap: 0;
+  }
+}
+
+.layout__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 62em) {
+  .layout__aside {
+    position: sticky;
+    top: 6.5rem;
+    align-self: start;
+  }
+}
+
+.layout__aside .aside-note {
+  display: none;
+  font-size: var(--t-small);
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 22ch;
+}
+
+@media (min-width: 62em) {
+  .layout__aside .aside-note {
+    display: block;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--hairline);
+  }
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 05 — Buttons ============================================================ */
+
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--text);
+  --btn-line: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1px solid var(--btn-line);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: var(--t-small);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--solid {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--on-garnet);
+  --btn-line: var(--accent);
+}
+
+.btn--solid:hover {
+  --btn-bg: var(--garnet-hover);
+  --btn-line: var(--garnet-hover);
+}
+
+.btn--ghost {
+  --btn-line: var(--hairline);
+}
+
+.btn--ghost:hover {
+  --btn-line: var(--text);
+}
+
+.btn__arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(3px);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* 06 — Kopfzeile & Navigation ============================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.site-header.is-stuck {
+  border-bottom-color: var(--hairline);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wordmark em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.nav {
+  display: none;
+}
+
+@media (min-width: 62em) {
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.1rem, 2vw, 1.9rem);
+  }
+}
+
+.nav__link {
+  position: relative;
+  font-size: var(--t-small);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding-block: 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--text);
+}
+
+.nav__link.is-active::after,
+.nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--text);
+  color: var(--accent);
+}
+
+.header-tools .btn {
+  display: none;
+}
+
+@media (min-width: 48em) {
+  .header-tools .btn {
+    display: inline-flex;
+  }
+}
+
+.nav-toggle {
+  display: inline-grid;
+}
+
+@media (min-width: 62em) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.theme-toggle__sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle__moon {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle__sun {
+    display: block;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle__moon {
+    display: none;
+  }
+}
+
+/* Mobiles Menü */
+.mobile-nav {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  transition: grid-template-rows 0.32s ease, border-color 0.32s ease;
+}
+
+.mobile-nav.is-open {
+  grid-template-rows: 1fr;
+  border-top-color: var(--hairline);
+}
+
+.mobile-nav__inner {
+  min-height: 0;
+}
+
+.mobile-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav__list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--hairline-soft);
+  font-size: 1.0625rem;
+  text-decoration: none;
+}
+
+.mobile-nav__list a span {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  color: var(--text-muted);
+}
+
+/* 07 — Hero & Lash Map ==================================================== */
+
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 6rem);
+}
+
+.hero__grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 62em) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3rem, 5vw, 5rem);
+  }
+}
+
+.hero__title {
+  /* Der Zeilenfall steht im Markup — balance würde ihn überstimmen.
+     Umbrechen darf die Zeile trotzdem, sonst läuft sie schmal heraus. */
+  text-wrap: wrap;
+  margin-block: 1.25rem 1.5rem;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero__meta span::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* Die Lash Map: das Diagramm, das vor jedem Set gezeichnet wird */
+.lashmap {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  box-shadow: var(--shadow);
+}
+
+.lashmap__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 0.9rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--hairline-soft);
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lashmap svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.lm-lid {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.lm-iris {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.2;
+  opacity: 0.5;
+}
+
+.lm-pupil {
+  fill: var(--text);
+  opacity: 0.14;
+}
+
+.lm-lash {
+  stroke: var(--text);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+}
+
+.lm-tick {
+  stroke: var(--accent);
+  stroke-width: 0.75;
+  stroke-dasharray: 3 4;
+  opacity: 0.5;
+}
+
+.lm-mm {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  fill: var(--accent);
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+}
+
+.lm-axis {
+  stroke: var(--hairline);
+  stroke-width: 1;
+}
+
+.lm-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* 08 — Leistungen als Datenblatt ========================================== */
+
+.services {
+  display: flex;
+  flex-direction: column;
+}
+
+.service {
+  display: grid;
+  gap: 1.25rem;
+  padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
+  border-top: 1px solid var(--hairline);
+}
+
+.service:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 48em) {
+  .service {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.service__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.service__ref {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.service__text {
+  margin-top: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Spezifikationstabelle: Curl, Stärke, Länge, Dauer */
+.spec {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+  align-self: start;
+  border-top: 1px solid var(--hairline-soft);
+}
+
+.spec dt,
+.spec dd {
+  margin: 0;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--hairline-soft);
+  font-size: var(--t-small);
+}
+
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-right: 1.75rem;
+  white-space: nowrap;
+}
+
+.spec dd {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* 09 — Preisliste ========================================================= */
+
+.pricing {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 55em) {
+  .pricing {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2.5rem, 6vw, 5rem);
+  }
+}
+
+.price-group__title {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--text);
+  margin: 0 0 0.25rem;
+}
+
+.price-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Zeile im Ledger: Bezeichnung — Punktführung — Betrag, Hinweis darunter */
+.price-list li {
+  display: grid;
+  grid-template-columns: auto minmax(1.5rem, 1fr) auto;
+  align-items: baseline;
+  column-gap: 0.6rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+
+.price-list__note {
+  grid-column: 1 / -1;
+  font-size: var(--t-small);
+  color: var(--text-muted);
+  line-height: 1.4;
+  padding-top: 0.15rem;
+}
+
+/* Leeres Element ohne Höhe: seine Grundlinie ist die Unterkante, die dotted
+   Linie liegt damit exakt auf der Schriftlinie von Bezeichnung und Betrag. */
+.price-list__leader {
+  align-self: baseline;
+  height: 0;
+  border-bottom: 1px dotted
+    color-mix(in srgb, var(--text-muted) 55%, transparent);
+}
+
+.price-list__value {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.price-note {
+  grid-column: 1 / -1;
+  font-size: var(--t-small);
+  color: var(--text-muted);
+  max-width: 68ch;
+  padding-top: 0.5rem;
+}
+
+/* 10 — Ablauf (echte Reihenfolge, darum nummeriert) ======================= */
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 55em) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2.5rem, 5vw, 4rem);
+  }
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 1.5rem 0 1.5rem 3.5rem;
+  border-top: 1px solid var(--hairline-soft);
+}
+
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.steps h3 {
+  margin-bottom: 0.4rem;
+}
+
+.steps p {
+  color: var(--text-muted);
+  font-size: var(--t-small);
+  line-height: 1.6;
+}
+
+/* 11 — Pflege ============================================================= */
+
+.care {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 48em) {
+  .care {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2.5rem, 6vw, 4.5rem);
+  }
+}
+
+.care__list {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.care__list li {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--hairline-soft);
+  font-size: var(--t-small);
+  line-height: 1.55;
+}
+
+.care__list li::before {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+.care__list--do li::before {
+  content: "+";
+  color: var(--accent);
+}
+
+.care__list--dont li::before {
+  content: "\2212"; /* Minuszeichen */
+  color: var(--text-muted);
+}
+
+/* 12 — Atelier & Bildrahmen =============================================== */
+
+.studio {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+@media (min-width: 55em) {
+  .studio {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  }
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.facts div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.facts dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bildrahmen — zeigt einen sauberen Platzhalter, solange kein Foto liegt */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper-sunk);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.frame:hover img {
+  transform: scale(1.03);
+}
+
+.frame__fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.frame__fallback::before {
+  content: "";
+  position: absolute;
+  inset: 0.75rem;
+  border: 1px dashed var(--hairline);
+}
+
+.frame.is-empty {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--paper-sunk),
+    var(--paper-sunk) 9px,
+    var(--hairline-soft) 9px,
+    var(--hairline-soft) 10px
+  );
+}
+
+.frame.is-empty img {
+  display: none;
+}
+
+.frame.is-empty .frame__fallback {
+  display: flex;
+}
+
+/* 13 — FAQ ================================================================ */
+
+.faq {
+  border-top: 1px solid var(--hairline);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--hairline-soft);
+}
+
+.faq summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.0625rem;
+  transition: color 0.2s ease;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary:hover {
+  color: var(--accent);
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent);
+  transition: transform 0.25s ease;
+}
+
+.faq details[open] summary::after {
+  content: "\2212";
+}
+
+.faq__answer {
+  padding: 0 0 1.5rem;
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+/* 14 — Kontakt & Formular ================================================= */
+
+.contact {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+@media (min-width: 55em) {
+  .contact {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+
+.hours {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--hairline-soft);
+  font-size: var(--t-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.hours li span:first-child {
+  color: var(--text-muted);
+}
+
+.hours li.is-closed span:last-child {
+  color: var(--text-muted);
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+
+.contact-block address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.form {
+  display: grid;
+  gap: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: var(--t-body);
+  transition: border-color 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 6.5rem;
+  line-height: 1.55;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--text-muted);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+}
+
+.field-row {
+  display: grid;
+  gap: 1.1rem;
+}
+
+@media (min-width: 30em) {
+  .field-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Auswahlfeld: lange Leistungsnamen dürfen nicht abgeschnitten werden */
+.field select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 1.1rem) 55%, calc(100% - 0.75rem) 55%;
+  background-size: 0.35rem 0.35rem, 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+  text-overflow: ellipsis;
+}
+
+.form__consent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  font-size: var(--t-small);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.form__consent input {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.28rem;
+  accent-color: var(--accent);
+}
+
+.form__hint {
+  font-size: var(--t-small);
+  color: var(--text-muted);
+}
+
+.form__status {
+  font-size: var(--t-small);
+  color: var(--accent);
+  min-height: 1.2em;
+}
+
+/* 15 — Fusszeile ========================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(2.5rem, 5vw, 4rem) 2rem;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 48em) {
+  .site-footer__grid {
+    grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+  }
+}
+
+.site-footer h2 {
+  font-size: 1.75rem;
+}
+
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: var(--t-small);
+}
+
+.footer-list a {
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer-list a:hover {
+  color: var(--accent);
+}
+
+.footer-title {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 1rem;
+}
+
+.colophon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline-soft);
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* 16 — Rechtstexte ======================================================== */
+
+.prose {
+  max-width: 68ch;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.prose h2 {
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  margin-top: 2.25rem;
+}
+
+.prose h3 {
+  font-size: 1.125rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  margin-top: 1.25rem;
+}
+
+.prose ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.prose li {
+  padding-left: 0.25rem;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose address {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+/* Auszufüllende Stellen sichtbar markieren */
+.todo {
+  background: var(--accent-tint);
+  color: var(--accent);
+  padding: 0.05em 0.4em;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.page-head {
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* 17 — Bewegung =========================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Die Lash Map zeichnet sich beim Laden — Lidkante zuerst, dann Wimper für
+   Wimper von innen nach aussen, wie beim echten Mapping. */
+.lm-draw {
+  stroke-dasharray: var(--len, 900);
+  stroke-dashoffset: var(--len, 900);
+  animation: lm-stroke 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Wimpern: von innen nach aussen, 22 ms Versatz je Wimper */
+.lm-lash {
+  opacity: 0;
+  animation: lm-fade-in 0.45s ease forwards;
+  animation-delay: calc(0.5s + var(--i, 0) * 22ms);
+}
+
+/* Zonengrenzen und Massangaben kommen zuletzt, wie beim Beschriften */
+.lm-tick {
+  opacity: 0;
+  animation: lm-fade-guide 0.45s ease forwards;
+  animation-delay: calc(1.55s + var(--i, 0) * 55ms);
+}
+
+.lm-mm {
+  opacity: 0;
+  animation: lm-fade-in 0.45s ease forwards;
+  animation-delay: calc(1.75s + var(--i, 0) * 55ms);
+}
+
+@keyframes lm-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes lm-fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lm-fade-guide {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .lm-draw {
+    stroke-dashoffset: 0;
+  }
+
+  .lm-lash,
+  .lm-mm {
+    opacity: 1;
+  }
+
+  .lm-tick {
+    opacity: 0.5;
+  }
+}
+
+@media print {
+  .site-header,
+  .mobile-nav,
+  .form,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
