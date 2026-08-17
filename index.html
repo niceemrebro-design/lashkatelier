@@ -24,8 +24,8 @@
     />
     <meta property="og:url" content="https://www.lashkatelier.de/" />
 
-    <link rel="preload" href="assets/fonts/instrument-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="assets/fonts/bodoni-moda-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="assets/css/fonts.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
 
@@ -44,29 +44,22 @@
 
     <header class="site-header" id="siteHeader">
       <div class="shell site-header__inner">
-        <a class="wordmark" href="#top">Lash <em>Katelier</em></a>
+        <a class="wordmark" href="#top">Lash <span>Katelier</span></a>
 
         <nav class="nav" aria-label="Hauptnavigation">
           <a class="nav__link" href="#leistungen">Leistungen</a>
           <a class="nav__link" href="#preise">Preise</a>
           <a class="nav__link" href="#ablauf">Ablauf</a>
-          <a class="nav__link" href="#pflege">Pflege</a>
           <a class="nav__link" href="#atelier">Atelier</a>
-          <a class="nav__link" href="#faq">FAQ</a>
           <a class="nav__link" href="#kontakt">Kontakt</a>
         </nav>
 
         <div class="header-tools">
-          <button
-            class="icon-btn"
-            id="themeToggle"
-            type="button"
-            aria-label="Farbschema wechseln"
-          >
-            <svg class="theme-toggle__moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Farbschema wechseln">
+            <svg class="theme-toggle__moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
               <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" />
             </svg>
-            <svg class="theme-toggle__sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <svg class="theme-toggle__sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
               <circle cx="12" cy="12" r="4.2" />
               <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round" />
             </svg>
@@ -80,7 +73,7 @@
             aria-controls="mobileNav"
             aria-label="Menü öffnen"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
               <path d="M3 7h18M3 12h18M3 17h18" stroke-linecap="round" />
             </svg>
           </button>
@@ -98,7 +91,7 @@
               <li><a href="#ablauf">Ablauf<span>03</span></a></li>
               <li><a href="#pflege">Pflege<span>04</span></a></li>
               <li><a href="#atelier">Atelier<span>05</span></a></li>
-              <li><a href="#faq">FAQ<span>06</span></a></li>
+              <li><a href="#faq">Fragen<span>06</span></a></li>
               <li><a href="#kontakt">Kontakt<span>07</span></a></li>
             </ul>
           </div>
@@ -113,12 +106,12 @@
       <section class="hero">
         <div class="shell hero__grid">
           <div>
-            <p class="eyebrow eyebrow--accent">
+            <p class="label label--plain">
               Lash &amp; Brow Atelier · <span class="todo">Stadt</span>
             </p>
 
             <h1 class="hero__title">
-              Milli&shy;meter&shy;arbeit<br />für deinen<br /><em>Blick</em>.
+              Milli&shy;meter&shy;arbeit<br />für deinen <span>Blick</span>.
             </h1>
 
             <p class="lede">
@@ -128,7 +121,7 @@
               nach Schablone.
             </p>
 
-            <div class="btn-row" style="margin-top: 2rem">
+            <div class="btn-row" style="margin-top: 1.75rem">
               <a class="btn btn--solid" href="#kontakt">
                 Termin anfragen
                 <span class="btn__arrow" aria-hidden="true">→</span>
@@ -136,11 +129,11 @@
               <a class="btn btn--ghost" href="#preise">Preise ansehen</a>
             </div>
 
-            <p class="hero__meta">
-              <span>Einzeltermine</span>
-              <span>Geprüfte Kleber</span>
-              <span>Wimpernverlängerung · Lifting · Brauen</span>
-            </p>
+            <ul class="hero__meta">
+              <li>Einzeltermine</li>
+              <li>Geprüfte Kleber</li>
+              <li>Termin nach Vereinbarung</li>
+            </ul>
           </div>
 
           <!-- Lash Map: das Diagramm, das vor jedem Set entsteht.
@@ -232,249 +225,217 @@
             </svg>
 
             <figcaption class="lashmap__caption">
-              <span>Abb. 01 — Lash Map, Zone 1–7</span>
-              <span>Curl C · 0,07 mm · 9–12 mm</span>
+              <span><b>Lash Map</b> — sieben Zonen, Längen in Millimetern</span>
+              <span>Curl C · 0,07 mm</span>
             </figcaption>
           </figure>
         </div>
       </section>
 
       <!-- ===== Leistungen ============================================== -->
-      <section class="band" id="leistungen">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">01 — Leistungen</p>
-            <p class="aside-note">
-              Alle Angaben als Richtwerte. Was zu dir passt, klären wir im
-              Vorgespräch.
+      <section class="band band--sunk" id="leistungen">
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">01</span> Leistungen</p>
+            <h2>Drei Handgriffe, die wir wirklich beherrschen.</h2>
+            <p class="lede">
+              Kein Bauchladen: Wimpern, Lifting, Brauen. Dafür jede Technik
+              sauber, geduldig und mit Material, das wir selbst prüfen.
             </p>
           </div>
 
-          <div>
-            <div class="section-head reveal">
-              <h2>Drei Handgriffe,<br />die wir wirklich beherrschen.</h2>
-              <p class="lede">
-                Kein Bauchladen: Wimpern, Lifting, Brauen. Dafür jede Technik
-                sauber, geduldig und mit Material, das wir selbst prüfen.
+          <div class="services reveal">
+            <article class="card">
+              <h3>Wimpernverlängerung</h3>
+              <p class="service__text">
+                Von <em>klassisch 1:1</em> für den natürlichen Wimpernkranz über
+                <em>Light Volume</em> als weiche Verdichtung bis zu
+                <em>Volumen</em> und <em>Mega Volumen</em>. Jede Extension wird
+                einzeln auf eine isolierte Naturwimper gesetzt — nichts
+                verklebt, nichts zieht.
               </p>
-            </div>
+              <p class="service__detail">
+                Stärken von 0,03 bis 0,15 mm, Längen von 6 bis 14 mm, Curl B
+                bis M. Welche Kombination zu deinen Naturwimpern passt, legen
+                wir beim Mapping fest.
+              </p>
+              <dl class="meta">
+                <div><dt>Dauer</dt><dd>90–150 Min</dd></div>
+                <div><dt>Haltbarkeit</dt><dd>4–6 Wochen</dd></div>
+                <div><dt>Preis</dt><dd>ab 110 €</dd></div>
+              </dl>
+            </article>
 
-            <div class="services">
-              <article class="service reveal">
-                <div>
-                  <div class="service__title">
-                    <h3>Wimpern&shy;verlängerung</h3>
-                    <span class="service__ref">L.01</span>
-                  </div>
-                  <p class="service__text">
-                    Von <strong>klassisch 1:1</strong> für den natürlichen
-                    Wimpernkranz über <strong>Light Volume (2D–3D)</strong> als
-                    weiche Verdichtung bis zu <strong>Volumen (4D–6D)</strong>
-                    und <strong>Mega Volumen</strong>. Jede Extension wird
-                    einzeln auf eine isolierte Naturwimper gesetzt — nichts
-                    verklebt, nichts zieht.
-                  </p>
-                </div>
-                <dl class="spec">
-                  <dt>Technik</dt><dd>1:1 bis 6D</dd>
-                  <dt>Stärke</dt><dd>0,03 – 0,15 mm</dd>
-                  <dt>Länge</dt><dd>6 – 14 mm</dd>
-                  <dt>Curl</dt><dd>B · C · CC · D · L · M</dd>
-                  <dt>Dauer</dt><dd>90 – 150 Min</dd>
-                  <dt>Haltbarkeit</dt><dd>4 – 6 Wochen</dd>
-                </dl>
-              </article>
+            <article class="card">
+              <h3>Lash Lifting &amp; Botox</h3>
+              <p class="service__text">
+                Deine eigenen Wimpern, aufgerichtet. Über Silikonpads bekommt
+                der Wimpernkranz eine dauerhafte Schwingung, die Pflegekur füllt
+                die Faser auf, die Färbung setzt den Abschluss.
+              </p>
+              <p class="service__detail">
+                Ideal, wenn du morgens gar nichts tun und ohne Auffülltermine
+                leben möchtest. Nach der Behandlung 48 Stunden trocken halten.
+              </p>
+              <dl class="meta">
+                <div><dt>Dauer</dt><dd>60–75 Min</dd></div>
+                <div><dt>Haltbarkeit</dt><dd>6–8 Wochen</dd></div>
+                <div><dt>Preis</dt><dd>ab 75 €</dd></div>
+              </dl>
+            </article>
 
-              <article class="service reveal">
-                <div>
-                  <div class="service__title">
-                    <h3>Lash Lifting &amp; Botox</h3>
-                    <span class="service__ref">L.02</span>
-                  </div>
-                  <p class="service__text">
-                    Deine eigenen Wimpern, aufgerichtet. Über Silikonpads
-                    bekommt der Wimpernkranz eine dauerhafte Schwingung, die
-                    Pflegekur füllt die Faser auf, die Färbung setzt den
-                    Abschluss. Ideal, wenn du morgens gar nichts tun willst —
-                    und ohne Auffülltermine leben möchtest.
-                  </p>
-                </div>
-                <dl class="spec">
-                  <dt>Technik</dt><dd>Silikonpad-Lifting</dd>
-                  <dt>Inklusive</dt><dd>Keratin-Pflege</dd>
-                  <dt>Färbung</dt><dd>optional</dd>
-                  <dt>Dauer</dt><dd>60 – 75 Min</dd>
-                  <dt>Haltbarkeit</dt><dd>6 – 8 Wochen</dd>
-                  <dt>Nach dem Termin</dt><dd>48 h trocken</dd>
-                </dl>
-              </article>
-
-              <article class="service reveal">
-                <div>
-                  <div class="service__title">
-                    <h3>Augenbrauen</h3>
-                    <span class="service__ref">B.01</span>
-                  </div>
-                  <p class="service__text">
-                    Form zuerst, Farbe danach. Wir vermessen den Brauenverlauf
-                    an deinen Gesichtsproportionen, korrigieren mit Pinzette
-                    und Faden und färben in einem Ton, der zum Ansatz passt.
-                    Die <strong>Laminierung</strong> legt widerspenstige Härchen
-                    dauerhaft in Richtung.
-                  </p>
-                </div>
-                <dl class="spec">
-                  <dt>Formen</dt><dd>Pinzette &amp; Faden</dd>
-                  <dt>Färben</dt><dd>Farbe oder Henna</dd>
-                  <dt>Laminierung</dt><dd>inkl. Pflege</dd>
-                  <dt>Dauer</dt><dd>20 – 75 Min</dd>
-                  <dt>Haltbarkeit</dt><dd>4 – 6 Wochen</dd>
-                  <dt>Nach dem Termin</dt><dd>24 h trocken</dd>
-                </dl>
-              </article>
-            </div>
+            <article class="card">
+              <h3>Augenbrauen</h3>
+              <p class="service__text">
+                Form zuerst, Farbe danach. Wir vermessen den Brauenverlauf an
+                deinen Gesichtsproportionen, korrigieren mit Pinzette und Faden
+                und färben in einem Ton, der zum Ansatz passt.
+              </p>
+              <p class="service__detail">
+                Die Laminierung legt widerspenstige Härchen dauerhaft in
+                Richtung. Färbung mit Farbe oder Henna, Pflege inklusive.
+              </p>
+              <dl class="meta">
+                <div><dt>Dauer</dt><dd>20–75 Min</dd></div>
+                <div><dt>Haltbarkeit</dt><dd>4–6 Wochen</dd></div>
+                <div><dt>Preis</dt><dd>ab 20 €</dd></div>
+              </dl>
+            </article>
           </div>
         </div>
       </section>
 
       <!-- ===== Preise ================================================== -->
-      <section class="band band--sunk" id="preise">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">02 — Preise</p>
-            <p class="aside-note">
-              Endpreise inkl. USt. Ein Termin, eine Person — keine
-              Parallelbedienung.
+      <section class="band" id="preise">
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">02</span> Preise</p>
+            <h2>Was der Termin kostet, steht vorher fest.</h2>
+            <p class="lede">
+              Endpreise inklusive Umsatzsteuer. Keine Aufschläge für Länge, Curl
+              oder Farbe.
             </p>
           </div>
 
-          <div>
-            <div class="section-head reveal">
-              <h2>Preisliste</h2>
-              <p class="lede">
-                Was der Termin kostet, steht vorher fest. Keine Aufschläge für
-                Länge, Curl oder Farbe.
-              </p>
-            </div>
-
-            <div class="pricing reveal">
+          <div class="panel reveal">
+            <div class="pricing">
               <div class="stack">
-                <h3 class="price-group__title">Wimpernverlängerung — Neuanlage</h3>
-                <ul class="price-list">
-                  <li>
-                    <span class="price-list__name">Klassisch 1:1</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">110 €</span>
-                    <span class="price-list__note">natürlicher Wimpernkranz</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Light Volume 2D–3D</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">135 €</span>
-                    <span class="price-list__note">weiche Verdichtung</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Volumen 4D–6D</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">155 €</span>
-                    <span class="price-list__note">voll, aber leicht</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Mega Volumen ab 7D</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">175 €</span>
-                    <span class="price-list__note">maximale Dichte</span>
-                  </li>
-                </ul>
+                <div>
+                  <h3 class="price-group__title">Wimpernverlängerung — Neuanlage</h3>
+                  <ul class="price-list">
+                    <li>
+                      <span>Klassisch 1:1</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">110 €</span>
+                      <span class="price-list__note">natürlicher Wimpernkranz</span>
+                    </li>
+                    <li>
+                      <span>Light Volume 2D–3D</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">135 €</span>
+                      <span class="price-list__note">weiche Verdichtung</span>
+                    </li>
+                    <li>
+                      <span>Volumen 4D–6D</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">155 €</span>
+                      <span class="price-list__note">voll, aber leicht</span>
+                    </li>
+                    <li>
+                      <span>Mega Volumen ab 7D</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">175 €</span>
+                      <span class="price-list__note">maximale Dichte</span>
+                    </li>
+                  </ul>
+                </div>
 
-                <h3 class="price-group__title" style="margin-top: 1.5rem">
-                  Auffüllen
-                </h3>
-                <ul class="price-list">
-                  <li>
-                    <span class="price-list__name">nach 2 Wochen</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">55 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">nach 3 Wochen</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">70 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">nach 4 Wochen</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">85 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">
-                      Entfernen</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">25 €</span>
-                    <span class="price-list__note">auch fremde Arbeiten</span>
-                  </li>
-                </ul>
+                <div>
+                  <h3 class="price-group__title">Auffüllen</h3>
+                  <ul class="price-list">
+                    <li>
+                      <span>nach 2 Wochen</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">55 €</span>
+                    </li>
+                    <li>
+                      <span>nach 3 Wochen</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">70 €</span>
+                    </li>
+                    <li>
+                      <span>nach 4 Wochen</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">85 €</span>
+                    </li>
+                    <li>
+                      <span>Entfernen</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">25 €</span>
+                      <span class="price-list__note">auch fremde Arbeiten</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <div class="stack">
-                <h3 class="price-group__title">Lifting &amp; Naturwimpern</h3>
-                <ul class="price-list">
-                  <li>
-                    <span class="price-list__name">Lash Lifting</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">75 €</span>
-                    <span class="price-list__note">inkl. Keratin-Pflege</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Lash Lifting &amp; Färben</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">90 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Wimpern färben</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">18 €</span>
-                  </li>
-                </ul>
+                <div>
+                  <h3 class="price-group__title">Lifting &amp; Naturwimpern</h3>
+                  <ul class="price-list">
+                    <li>
+                      <span>Lash Lifting</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">75 €</span>
+                      <span class="price-list__note">inkl. Keratin-Pflege</span>
+                    </li>
+                    <li>
+                      <span>Lash Lifting &amp; Färben</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">90 €</span>
+                    </li>
+                    <li>
+                      <span>Wimpern färben</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">18 €</span>
+                    </li>
+                  </ul>
+                </div>
 
-                <h3 class="price-group__title" style="margin-top: 1.5rem">
-                  Augenbrauen
-                </h3>
-                <ul class="price-list">
-                  <li>
-                    <span class="price-list__name">Formen mit Pinzette</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">20 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Formen &amp; Färben</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">32 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">
-                      Browlifting</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">65 €</span>
-                    <span class="price-list__note">Laminierung inkl. Form</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">Browlifting &amp; Färben</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">78 €</span>
-                  </li>
-                  <li>
-                    <span class="price-list__name">
-                      Henna Brows</span>
-                    <span class="price-list__leader" aria-hidden="true"></span>
-                    <span class="price-list__value">45 €</span>
-                    <span class="price-list__note">inkl. Form</span>
-                  </li>
-                </ul>
+                <div>
+                  <h3 class="price-group__title">Augenbrauen</h3>
+                  <ul class="price-list">
+                    <li>
+                      <span>Formen mit Pinzette</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">20 €</span>
+                    </li>
+                    <li>
+                      <span>Formen &amp; Färben</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">32 €</span>
+                    </li>
+                    <li>
+                      <span>Browlifting</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">65 €</span>
+                      <span class="price-list__note">Laminierung inkl. Form</span>
+                    </li>
+                    <li>
+                      <span>Browlifting &amp; Färben</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">78 €</span>
+                    </li>
+                    <li>
+                      <span>Henna Brows</span>
+                      <span class="price-list__leader" aria-hidden="true"></span>
+                      <span class="price-list__value">45 €</span>
+                      <span class="price-list__note">inkl. Form</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <p class="price-note">
-                Alle Preise sind Endpreise inkl. gesetzlicher Umsatzsteuer.
                 Stand: <span class="todo">Monat / Jahr</span>. Auffülltermine
                 nach mehr als vier Wochen oder mit weniger als 40 % Restbesatz
                 gelten als Neuanlage. Termine bitte spätestens 24 Stunden vorher
@@ -486,115 +447,100 @@
       </section>
 
       <!-- ===== Ablauf ================================================== -->
-      <section class="band" id="ablauf">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">03 — Ablauf</p>
-            <p class="aside-note">
-              Plane für die Neuanlage rund zweieinhalb Stunden ein.
+      <section class="band band--sunk" id="ablauf">
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">03</span> Ablauf</p>
+            <h2>So läuft dein Termin.</h2>
+            <p class="lede">
+              Sechs Schritte, immer in dieser Reihenfolge. Für die Neuanlage
+              plane rund zweieinhalb Stunden ein.
             </p>
           </div>
 
-          <div>
-            <div class="section-head reveal">
-              <h2>So läuft dein Termin.</h2>
-              <p class="lede">
-                Sechs Schritte, immer in dieser Reihenfolge — auch beim
-                fünfzehnten Mal.
+          <ol class="steps reveal">
+            <li>
+              <h3>Vorgespräch</h3>
+              <p>
+                Wir klären Augenform, Vorgeschichte, Allergien, Kontaktlinsen
+                und wie natürlich das Ergebnis sein soll.
               </p>
-            </div>
-
-            <ol class="steps reveal">
-              <li>
-                <h3>Vorgespräch</h3>
-                <p>
-                  Wir klären Augenform, Vorgeschichte, Allergien, Kontaktlinsen
-                  und wie natürlich oder auffällig das Ergebnis sein soll.
-                </p>
-              </li>
-              <li>
-                <h3>Mapping</h3>
-                <p>
-                  Auf dem Unterlidpad entsteht die Lash Map: Zonen, Längen,
-                  Curl und Stärke. Erst wenn die Linie steht, geht es weiter.
-                </p>
-              </li>
-              <li>
-                <h3>Reinigung</h3>
-                <p>
-                  Schaumreiniger, Entfettung und Bürsten. Ohne rückstandsfreie
-                  Naturwimper hält der beste Kleber nicht.
-                </p>
-              </li>
-              <li>
-                <h3>Anwendung</h3>
-                <p>
-                  Jede Naturwimper wird isoliert und einzeln beklebt — bei
-                  geschlossenen Augen, ohne Zug auf dem Lid.
-                </p>
-              </li>
-              <li>
-                <h3>Aushärtung &amp; Kontrolle</h3>
-                <p>
-                  Nano-Mister, Auskämmen, Sichtprüfung auf Verklebungen. Danach
-                  siehst du das Ergebnis zum ersten Mal.
-                </p>
-              </li>
-              <li>
-                <h3>Pflege &amp; Refill</h3>
-                <p>
-                  Du bekommst Bürstchen, Pflegehinweise und den Vorschlag für
-                  den nächsten Termin in zwei bis drei Wochen.
-                </p>
-              </li>
-            </ol>
-          </div>
+            </li>
+            <li>
+              <h3>Mapping</h3>
+              <p>
+                Auf dem Unterlidpad entsteht die Lash Map: Zonen, Längen, Curl
+                und Stärke. Erst wenn die Linie steht, geht es weiter.
+              </p>
+            </li>
+            <li>
+              <h3>Reinigung</h3>
+              <p>
+                Schaumreiniger, Entfettung und Bürsten. Ohne rückstandsfreie
+                Naturwimper hält der beste Kleber nicht.
+              </p>
+            </li>
+            <li>
+              <h3>Anwendung</h3>
+              <p>
+                Jede Naturwimper wird isoliert und einzeln beklebt — bei
+                geschlossenen Augen, ohne Zug auf dem Lid.
+              </p>
+            </li>
+            <li>
+              <h3>Aushärtung &amp; Kontrolle</h3>
+              <p>
+                Nano-Mister, Auskämmen, Sichtprüfung auf Verklebungen. Danach
+                siehst du das Ergebnis zum ersten Mal.
+              </p>
+            </li>
+            <li>
+              <h3>Pflege &amp; Refill</h3>
+              <p>
+                Du bekommst Bürstchen, Pflegehinweise und den Vorschlag für den
+                nächsten Termin in zwei bis drei Wochen.
+              </p>
+            </li>
+          </ol>
         </div>
       </section>
 
       <!-- ===== Pflege ================================================== -->
       <section class="band" id="pflege">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">04 — Pflege</p>
-            <p class="aside-note">
-              Die ersten 24 Stunden entscheiden über die Haltbarkeit.
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">04</span> Pflege</p>
+            <h2>Damit es vier Wochen gut aussieht.</h2>
+            <p class="lede">
+              Extensions fallen mit der Naturwimper aus — das ist normal. Alles
+              andere lässt sich beeinflussen, und die ersten 24 Stunden
+              entscheiden am meisten.
             </p>
           </div>
 
-          <div>
-            <div class="section-head reveal">
-              <h2>Damit es vier Wochen<br />gut aussieht.</h2>
-              <p class="lede">
-                Extensions fallen mit der Naturwimper aus — das ist normal. Alles
-                andere lässt sich beeinflussen.
-              </p>
+          <div class="care reveal">
+            <div class="card">
+              <h3>Bitte tun</h3>
+              <ul class="care__list care__list--do">
+                <li>Die ersten 24 Stunden trocken und wasserfrei halten.</li>
+                <li>Täglich mit dem Bürstchen von unten auskämmen.</li>
+                <li>Zwei- bis dreimal pro Woche mit Wimpernshampoo reinigen.</li>
+                <li>Auf dem Rücken oder der Seite schlafen.</li>
+                <li>Alle zwei bis drei Wochen auffüllen lassen.</li>
+                <li>Bei Rötung oder Juckreiz sofort melden.</li>
+              </ul>
             </div>
 
-            <div class="care reveal">
-              <div>
-                <p class="eyebrow eyebrow--accent">Bitte tun</p>
-                <ul class="care__list care__list--do">
-                  <li>Die ersten 24 Stunden trocken und wasserfrei halten.</li>
-                  <li>Täglich mit dem Bürstchen von unten auskämmen.</li>
-                  <li>Zwei- bis dreimal pro Woche mit Wimpernshampoo reinigen.</li>
-                  <li>Auf dem Rücken oder der Seite schlafen.</li>
-                  <li>Alle zwei bis drei Wochen auffüllen lassen.</li>
-                  <li>Bei Rötung oder Juckreiz sofort melden.</li>
-                </ul>
-              </div>
-
-              <div>
-                <p class="eyebrow">Bitte lassen</p>
-                <ul class="care__list care__list--dont">
-                  <li>48 Stunden keine Sauna, kein Dampfbad, kein Solarium.</li>
-                  <li>Keine ölhaltigen Cremes, Reiniger oder Mizellenwasser.</li>
-                  <li>Kein wasserfester Mascara und keine Wimpernzange.</li>
-                  <li>Nicht reiben, zupfen oder mit den Fingern spielen.</li>
-                  <li>Extensions niemals selbst entfernen.</li>
-                  <li>Am Behandlungstag nicht geschminkt kommen.</li>
-                </ul>
-              </div>
+            <div class="card">
+              <h3>Bitte lassen</h3>
+              <ul class="care__list care__list--dont">
+                <li>48 Stunden keine Sauna, kein Dampfbad, kein Solarium.</li>
+                <li>Keine ölhaltigen Cremes, Reiniger oder Mizellenwasser.</li>
+                <li>Kein wasserfester Mascara und keine Wimpernzange.</li>
+                <li>Nicht reiben, zupfen oder mit den Fingern spielen.</li>
+                <li>Extensions niemals selbst entfernen.</li>
+                <li>Am Behandlungstag nicht geschminkt kommen.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -602,333 +548,282 @@
 
       <!-- ===== Atelier ================================================= -->
       <section class="band band--sunk" id="atelier">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">05 — Atelier</p>
-            <p class="aside-note">Termine ausschliesslich nach Vereinbarung.</p>
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">05</span> Atelier</p>
+            <h2>Ein Platz, ein Termin.</h2>
           </div>
 
-          <div>
-            <div class="studio">
-              <div class="reveal">
-                <h2>Ein Platz,<br />ein Termin.</h2>
-                <p class="service__text" style="margin-top: 1.25rem">
+          <div class="studio">
+            <div class="reveal">
+              <div class="prose-block">
+                <p>
                   Das Lash Katelier ist bewusst klein gehalten: ein
                   Behandlungsplatz, kein Wartebereich, keine zweite Kundin
-                  nebenan. Wer hier liegt, hat die volle Zeit — und wir die Ruhe,
-                  die Feinarbeit am Auge braucht.
+                  nebenan. Wer hier liegt, hat die volle Zeit — und wir die
+                  Ruhe, die Feinarbeit am Auge braucht.
                 </p>
-                <p class="service__text">
+                <p>
                   Gearbeitet wird mit Einwegmaterial, desinfizierten Pinzetten
                   und Klebern, die wir auf Charge und Haltbarkeit prüfen. Vor
                   der ersten Behandlung machen wir auf Wunsch einen
                   Verträglichkeitstest.
                 </p>
-
-                <dl class="facts">
-                  <div>
-                    <dt>Behandlungs&shy;plätze</dt>
-                    <dd>1</dd>
-                  </div>
-                  <div>
-                    <dt>Termindauer</dt>
-                    <dd>20–150<span style="font-size: 1rem"> Min</span></dd>
-                  </div>
-                  <div>
-                    <dt>Im Atelier seit</dt>
-                    <dd class="todo">20XX</dd>
-                  </div>
-                  <div>
-                    <dt>Material</dt>
-                    <dd>Einweg</dd>
-                  </div>
-                </dl>
               </div>
 
-              <!-- Bildstrecke: Fotos unter assets/img ablegen, siehe README.
-                   Fehlt eine Datei, zeigt der Rahmen einen Platzhalter. -->
-              <div class="gallery reveal">
-                <figure class="frame">
-                  <img
-                    src="assets/img/arbeit-01.jpg"
-                    alt="Klassisches 1:1-Wimpernset, Nahaufnahme"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="frame__fallback">
-                    <span>Foto — Klassisch 1:1</span>
-                  </figcaption>
-                </figure>
-                <figure class="frame">
-                  <img
-                    src="assets/img/arbeit-02.jpg"
-                    alt="Volumenset direkt nach der Anwendung"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="frame__fallback">
-                    <span>Foto — Volumen</span>
-                  </figcaption>
-                </figure>
-                <figure class="frame">
-                  <img
-                    src="assets/img/arbeit-03.jpg"
-                    alt="Augenbrauen nach Laminierung und Färbung"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="frame__fallback">
-                    <span>Foto — Browlifting</span>
-                  </figcaption>
-                </figure>
-                <figure class="frame">
-                  <img
-                    src="assets/img/atelier-01.jpg"
-                    alt="Arbeitsplatz im Atelier"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="frame__fallback">
-                    <span>Foto — Arbeitsplatz</span>
-                  </figcaption>
-                </figure>
-              </div>
+              <dl class="facts">
+                <div>
+                  <dd>1</dd>
+                  <dt>Behandlungsplatz</dt>
+                </div>
+                <div>
+                  <dd>20–150<small> Min</small></dd>
+                  <dt>Termindauer</dt>
+                </div>
+                <div>
+                  <dd><span class="todo">20XX</span></dd>
+                  <dt>Im Atelier seit</dt>
+                </div>
+                <div>
+                  <dd>Einweg</dd>
+                  <dt>Material</dt>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Bildstrecke: Fotos unter assets/img ablegen, siehe README.
+                 Fehlt eine Datei, zeigt der Rahmen einen Platzhalter. -->
+            <div class="gallery reveal">
+              <figure class="frame">
+                <img src="assets/img/arbeit-01.jpg" alt="Klassisches 1:1-Wimpernset, Nahaufnahme" loading="lazy" decoding="async" />
+                <figcaption class="frame__fallback"><span>Foto — Klassisch 1:1</span></figcaption>
+              </figure>
+              <figure class="frame">
+                <img src="assets/img/arbeit-02.jpg" alt="Volumenset direkt nach der Anwendung" loading="lazy" decoding="async" />
+                <figcaption class="frame__fallback"><span>Foto — Volumen</span></figcaption>
+              </figure>
+              <figure class="frame">
+                <img src="assets/img/arbeit-03.jpg" alt="Augenbrauen nach Laminierung und Färbung" loading="lazy" decoding="async" />
+                <figcaption class="frame__fallback"><span>Foto — Browlifting</span></figcaption>
+              </figure>
+              <figure class="frame">
+                <img src="assets/img/atelier-01.jpg" alt="Arbeitsplatz im Atelier" loading="lazy" decoding="async" />
+                <figcaption class="frame__fallback"><span>Foto — Arbeitsplatz</span></figcaption>
+              </figure>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===== FAQ ===================================================== -->
+      <!-- ===== Fragen ================================================== -->
       <section class="band" id="faq">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">06 — Fragen</p>
-            <p class="aside-note">
-              Steht deine Frage nicht dabei? Schreib sie einfach ins Formular.
-            </p>
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">06</span> Fragen</p>
+            <h2>Häufige Fragen</h2>
           </div>
 
-          <div>
-            <div class="section-head reveal">
-              <h2>Häufige Fragen</h2>
-            </div>
+          <div class="faq reveal">
+            <details>
+              <summary>Tut die Behandlung weh?</summary>
+              <div class="faq__answer">
+                <p>
+                  Nein. Die Extensions werden auf die Naturwimper geklebt, nie
+                  auf die Haut — du liegst mit geschlossenen Augen und spürst im
+                  Wesentlichen nichts. Viele schlafen dabei ein.
+                </p>
+              </div>
+            </details>
 
-            <div class="faq reveal">
-              <details>
-                <summary>Tut die Behandlung weh?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Nein. Die Extensions werden auf die Naturwimper geklebt, nie
-                    auf die Haut — du liegst mit geschlossenen Augen und spürst
-                    im Wesentlichen nichts. Viele schlafen dabei ein.
-                  </p>
-                </div>
-              </details>
+            <details>
+              <summary>Schaden Extensions meinen eigenen Wimpern?</summary>
+              <div class="faq__answer">
+                <p>
+                  Nicht, wenn Stärke und Länge zur Naturwimper passen und sauber
+                  isoliert wird. Genau dafür ist das Mapping da: Eine dünne
+                  Naturwimper trägt kein 0,15er-Extension in 14 mm. Wir gehen im
+                  Zweifel eine Nummer leichter.
+                </p>
+              </div>
+            </details>
 
-              <details>
-                <summary>Schaden Extensions meinen eigenen Wimpern?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Nicht, wenn Stärke und Länge zur Naturwimper passen und
-                    sauber isoliert wird. Genau dafür ist das Mapping da: Eine
-                    dünne Naturwimper trägt kein 0,15er-Extension in 14 mm. Wir
-                    gehen im Zweifel eine Nummer leichter.
-                  </p>
-                </div>
-              </details>
+            <details>
+              <summary>Wie lange hält ein Set?</summary>
+              <div class="faq__answer">
+                <p>
+                  Vier bis sechs Wochen, bis der komplette Wimpernkranz
+                  gewechselt hat. Schön voll sieht es etwa zwei bis drei Wochen
+                  aus — deshalb der Auffülltermin in diesem Rhythmus.
+                </p>
+              </div>
+            </details>
 
-              <details>
-                <summary>Wie lange hält ein Set?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Vier bis sechs Wochen, bis der komplette Wimpernkranz
-                    gewechselt hat. Schön voll sieht es etwa zwei bis drei
-                    Wochen aus — deshalb der Auffülltermin in diesem Rhythmus.
-                  </p>
-                </div>
-              </details>
+            <details>
+              <summary>Kann ich mit Kontaktlinsen kommen?</summary>
+              <div class="faq__answer">
+                <p>
+                  Bitte nimm die Linsen vor der Behandlung heraus und bring dein
+                  Etui und deine Brille mit. Die Augen bleiben ein bis zwei
+                  Stunden geschlossen, mit Linsen wird das unangenehm.
+                </p>
+              </div>
+            </details>
 
-              <details>
-                <summary>Kann ich mit Kontaktlinsen kommen?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Bitte nimm die Linsen vor der Behandlung heraus und bring
-                    dein Etui und deine Brille mit. Die Augen bleiben ein bis
-                    zwei Stunden geschlossen, mit Linsen wird das unangenehm.
-                  </p>
-                </div>
-              </details>
+            <details>
+              <summary>Was ist, wenn ich empfindlich reagiere?</summary>
+              <div class="faq__answer">
+                <p>
+                  Sag uns vorher Bescheid, wenn du zu Allergien, trockenen Augen
+                  oder Bindehautreizungen neigst. Wir arbeiten dann mit einem
+                  sensitiven Kleber und machen vorab einen
+                  Verträglichkeitstest an wenigen Wimpern.
+                </p>
+              </div>
+            </details>
 
-              <details>
-                <summary>Was ist, wenn ich empfindlich reagiere?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Sag uns vorher Bescheid, wenn du zu Allergien, trockenen
-                    Augen oder Bindehautreizungen neigst. Wir arbeiten dann mit
-                    einem sensitiven Kleber und machen vorab einen
-                    Verträglichkeitstest an wenigen Wimpern.
-                  </p>
-                </div>
-              </details>
+            <details>
+              <summary>Kann ich mich noch schminken?</summary>
+              <div class="faq__answer">
+                <p>
+                  Lidschatten und Eyeliner auf Wasserbasis sind kein Problem.
+                  Verzichte auf Mascara, wasserfeste Produkte und ölhaltige
+                  Abschminker — sie lösen den Kleber und verkürzen die
+                  Haltbarkeit deutlich.
+                </p>
+              </div>
+            </details>
 
-              <details>
-                <summary>Kann ich mich noch schminken?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Lidschatten und Eyeliner auf Wasserbasis sind kein Problem.
-                    Verzichte auf Mascara, wasserfeste Produkte und ölhaltige
-                    Abschminker — sie lösen den Kleber und verkürzen die
-                    Haltbarkeit deutlich.
-                  </p>
-                </div>
-              </details>
-
-              <details>
-                <summary>Was kostet die Anfahrt oder Absage?</summary>
-                <div class="faq__answer">
-                  <p>
-                    Termine kannst du bis 24 Stunden vorher kostenfrei absagen
-                    oder verschieben. Danach berechnen wir 50 % der
-                    Behandlungskosten, weil die Zeit für andere blockiert war.
-                  </p>
-                </div>
-              </details>
-            </div>
+            <details>
+              <summary>Was passiert bei einer Absage?</summary>
+              <div class="faq__answer">
+                <p>
+                  Termine kannst du bis 24 Stunden vorher kostenfrei absagen
+                  oder verschieben. Danach berechnen wir 50 % der
+                  Behandlungskosten, weil die Zeit für andere blockiert war.
+                </p>
+              </div>
+            </details>
           </div>
         </div>
       </section>
 
       <!-- ===== Kontakt ================================================= -->
-      <section class="band" id="kontakt">
-        <div class="shell layout">
-          <div class="layout__aside">
-            <p class="eyebrow">07 — Kontakt</p>
-            <p class="aside-note">
-              Anfragen werden in der Regel innerhalb von 24 Stunden
-              beantwortet.
+      <section class="band band--sunk" id="kontakt">
+        <div class="shell">
+          <div class="band__head reveal">
+            <p class="label"><span class="label__num">07</span> Kontakt</p>
+            <h2>Termin anfragen</h2>
+            <p class="lede">
+              Schreib uns kurz, was du dir vorstellst und wann es dir passt.
+              Anfragen beantworten wir in der Regel innerhalb von 24 Stunden.
             </p>
           </div>
 
-          <div>
-            <div class="section-head reveal">
-              <h2>Termin anfragen</h2>
-              <p class="lede">
-                Schreib uns kurz, was du dir vorstellst und wann es dir passt —
-                den Rest klären wir persönlich.
-              </p>
+          <div class="contact">
+            <div class="reveal">
+              <p class="contact__title">Öffnungszeiten</p>
+              <ul class="hours">
+                <li class="is-closed"><span>Montag</span><span>geschlossen</span></li>
+                <li><span>Dienstag – Freitag</span><span>09:00 – 18:00</span></li>
+                <li><span>Samstag</span><span>09:00 – 14:00</span></li>
+                <li class="is-closed"><span>Sonntag</span><span>geschlossen</span></li>
+              </ul>
+
+              <div class="contact-block">
+                <p class="contact__title">Atelier</p>
+                <address>
+                  Lash Katelier<br />
+                  <span class="todo">Strasse und Hausnummer</span><br />
+                  <span class="todo">PLZ Ort</span>
+                </address>
+              </div>
+
+              <div class="contact-block">
+                <p class="contact__title">Direkt</p>
+                <p>
+                  <a href="tel:+490000000000" class="todo">+49 000 000 0000</a><br />
+                  <a href="mailto:hallo@lashkatelier.de">hallo@lashkatelier.de</a><br />
+                  <a href="https://instagram.com/lashkatelier" rel="me noopener">@lashkatelier</a>
+                </p>
+              </div>
             </div>
 
-            <div class="contact">
-              <div class="reveal">
-                <p class="eyebrow eyebrow--accent">Öffnungszeiten</p>
-                <ul class="hours">
-                  <li class="is-closed"><span>Montag</span><span>geschlossen</span></li>
-                  <li><span>Dienstag – Freitag</span><span>09:00 – 18:00</span></li>
-                  <li><span>Samstag</span><span>09:00 – 14:00</span></li>
-                  <li class="is-closed"><span>Sonntag</span><span>geschlossen</span></li>
-                </ul>
-
-                <div class="contact-block">
-                  <p class="eyebrow">Atelier</p>
-                  <address>
-                    Lash Katelier<br />
-                    <span class="todo">Strasse und Hausnummer</span><br />
-                    <span class="todo">PLZ Ort</span>
-                  </address>
+            <form class="panel form reveal" id="bookingForm" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
                 </div>
-
-                <div class="contact-block">
-                  <p class="eyebrow">Direkt</p>
-                  <p>
-                    <a href="tel:+490000000000" class="todo">+49 000 000 0000</a><br />
-                    <a href="mailto:hallo@lashkatelier.de">hallo@lashkatelier.de</a><br />
-                    <a href="https://instagram.com/lashkatelier" rel="me noopener">@lashkatelier</a>
-                  </p>
+                <div class="field">
+                  <label for="email">E-Mail</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
                 </div>
               </div>
 
-              <form class="form reveal" id="bookingForm" novalidate>
-                <div class="field-row">
-                  <div class="field">
-                    <label for="name">Name</label>
-                    <input id="name" name="name" type="text" autocomplete="name" required />
-                  </div>
-                  <div class="field">
-                    <label for="email">E-Mail</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required />
-                  </div>
-                </div>
-
-                <div class="field-row">
-                  <div class="field">
-                    <label for="phone">Telefon (optional)</label>
-                    <input id="phone" name="phone" type="tel" autocomplete="tel" />
-                  </div>
-                  <div class="field">
-                    <label for="wunsch">Wunschtermin</label>
-                    <input
-                      id="wunsch"
-                      name="wunsch"
-                      type="text"
-                      placeholder="z. B. Do vormittags, ab KW 12"
-                    />
-                  </div>
-                </div>
-
+              <div class="field-row">
                 <div class="field">
-                  <label for="service">Leistung</label>
-                  <select id="service" name="service">
-                    <option>Wimpernverlängerung — Neuanlage</option>
-                    <option>Wimpernverlängerung — Auffüllen</option>
-                    <option>Lash Lifting</option>
-                    <option>Augenbrauen — Formen &amp; Färben</option>
-                    <option>Browlifting / Laminierung</option>
-                    <option>Beratung / noch unklar</option>
-                  </select>
+                  <label for="phone">Telefon (optional)</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
                 </div>
-
                 <div class="field">
-                  <label for="message">Nachricht</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    placeholder="Trägst du gerade Extensions? Gibt es Allergien oder empfindliche Augen?"
-                  ></textarea>
+                  <label for="wunsch">Wunschtermin</label>
+                  <input id="wunsch" name="wunsch" type="text" placeholder="z. B. Do vormittags, ab KW 12" />
                 </div>
+              </div>
 
-                <label class="form__consent">
-                  <input type="checkbox" id="consent" name="consent" required />
-                  <span>
-                    Ich bin einverstanden, dass meine Angaben zur Bearbeitung
-                    der Anfrage verarbeitet werden. Details in der
-                    <a href="datenschutz.html">Datenschutzerklärung</a>.
-                  </span>
-                </label>
+              <div class="field">
+                <label for="service">Leistung</label>
+                <select id="service" name="service">
+                  <option>Wimpernverlängerung — Neuanlage</option>
+                  <option>Wimpernverlängerung — Auffüllen</option>
+                  <option>Lash Lifting</option>
+                  <option>Augenbrauen — Formen &amp; Färben</option>
+                  <option>Browlifting / Laminierung</option>
+                  <option>Beratung / noch unklar</option>
+                </select>
+              </div>
 
-                <div class="btn-row">
-                  <button class="btn btn--solid" type="submit">
-                    Anfrage senden
-                    <span class="btn__arrow" aria-hidden="true">→</span>
-                  </button>
-                  <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-                </div>
+              <div class="field">
+                <label for="message">Nachricht</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Trägst du gerade Extensions? Gibt es Allergien oder empfindliche Augen?"
+                ></textarea>
+              </div>
 
+              <label class="form__consent">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span>
+                  Ich bin einverstanden, dass meine Angaben zur Bearbeitung der
+                  Anfrage verarbeitet werden. Details in der
+                  <a href="datenschutz.html">Datenschutzerklärung</a>.
+                </span>
+              </label>
+
+              <div class="btn-row">
+                <button class="btn btn--solid" type="submit">
+                  Anfrage senden
+                  <span class="btn__arrow" aria-hidden="true">→</span>
+                </button>
+                <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+              </div>
+
+              <p class="form__hint">
+                Das Formular öffnet dein E-Mail-Programm mit einer fertig
+                ausgefüllten Nachricht. Es werden keine Daten an Dritte
+                übertragen.
+              </p>
+
+              <noscript>
                 <p class="form__hint">
-                  Das Formular öffnet dein E-Mail-Programm mit einer fertig
-                  ausgefüllten Nachricht. Es werden keine Daten an Dritte
-                  übertragen.
+                  Ohne JavaScript funktioniert das Formular nicht. Schreib uns
+                  bitte direkt an
+                  <a href="mailto:hallo@lashkatelier.de">hallo@lashkatelier.de</a>.
                 </p>
-
-                <noscript>
-                  <p class="form__hint">
-                    Ohne JavaScript funktioniert das Formular nicht. Schreib uns
-                    bitte direkt an
-                    <a href="mailto:hallo@lashkatelier.de">hallo@lashkatelier.de</a>.
-                  </p>
-                </noscript>
-              </form>
-            </div>
+              </noscript>
+            </form>
           </div>
         </div>
       </section>
@@ -938,24 +833,24 @@
       <div class="shell">
         <div class="site-footer__grid">
           <div class="stack">
-            <h2>Lash Katelier</h2>
-            <p style="color: var(--text-muted); max-width: 34ch">
+            <h2 style="font-size: 1.5rem">Lash Katelier</h2>
+            <p class="note" style="max-width: 34ch">
               Wimpernverlängerung, Lifting und Augenbrauen — im Einzeltermin,
               mit Mapping und Geduld.
             </p>
-            <div class="btn-row" style="margin-top: 0.5rem">
+            <div class="btn-row" style="margin-top: 0.25rem">
               <a class="btn btn--ghost" href="#kontakt">Termin anfragen</a>
             </div>
           </div>
 
           <div>
-            <p class="footer-title">Leistungen</p>
+            <p class="footer-title">Auf dieser Seite</p>
             <ul class="footer-list">
-              <li><a href="#leistungen">Wimpern&shy;verlängerung</a></li>
-              <li><a href="#leistungen">Lash Lifting &amp; Botox</a></li>
-              <li><a href="#leistungen">Augenbrauen</a></li>
+              <li><a href="#leistungen">Leistungen</a></li>
               <li><a href="#preise">Preisliste</a></li>
+              <li><a href="#ablauf">Ablauf</a></li>
               <li><a href="#pflege">Pflegehinweise</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
             </ul>
           </div>
 
@@ -979,7 +874,7 @@
     </footer>
 
     <!-- Strukturierte Daten für die lokale Suche.
-         Adresse, Telefon und Geo-Koordinaten bitte eintragen. -->
+         Adresse, Telefon und Öffnungszeiten bitte eintragen. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",

@@ -11,7 +11,7 @@ datenschutz.html      Datenschutzerklärung (Vorlage)
 assets/css/styles.css Design-Tokens und alle Komponenten
 assets/css/fonts.css  @font-face für die lokalen Schriften
 assets/js/main.js     Navigation, Farbschema, Formular
-assets/fonts/         Bodoni Moda, Instrument Sans, IBM Plex Mono (woff2)
+assets/fonts/         Fraunces und Figtree, je variabel (woff2)
 assets/img/           Fotos — noch leer, siehe unten
 assets/favicon.svg    Wimpern-Signet
 ```
@@ -29,7 +29,8 @@ werden dann aber je nach Browser blockiert.
 ## Vor dem Livegang ausfüllen
 
 Alle noch offenen Stellen sind im Quelltext mit `class="todo"` markiert und
-werden auf der Seite rosa hinterlegt dargestellt. So findest du sie:
+erscheinen auf der Seite in Granat mit gestrichelter Unterstreichung. So
+findest du sie:
 
 ```bash
 grep -rn 'class="todo"' *.html
@@ -73,7 +74,7 @@ assets/img/atelier-01.jpg   Arbeitsplatz
 ```
 
 Hochformat 4:5, etwa 800 × 1000 px, unter 200 KB. Fehlt eine Datei, zeigt der
-Rahmen automatisch einen schraffierten Platzhalter mit Beschriftung — die
+Rahmen automatisch einen gestrichelten Platzhalter mit Beschriftung — die
 Seite bleibt also heil, solange noch nichts da ist. Die `alt`-Texte in
 `index.html` bitte an das tatsächliche Motiv anpassen.
 
@@ -116,18 +117,25 @@ Rechtsberatung.
 
 ## Gestaltung
 
-Der Entwurf nimmt den Namen beim Wort: ein **Atelier**, keine
-Wellness-Lounge. Daher Werkstattbuch-Typografie statt Script-Schrift, ein
-Datenblatt statt Kacheln, Massangaben statt Schlagworte.
+Zwei Schriften, eine Akzentfarbe, klare Blöcke. Hierarchie entsteht über
+Schriftgewicht und Fläche — nicht über einen dritten Schriftwechsel.
 
-- **Farben** Porzellan `#f2f1f3`, Papier `#fbfafc`, Tinte `#16141a`, Graphit
-  `#625c69`, Haarlinie `#dedae2`, Granat `#6b2f44`. Dunkelmodus mit
-  eigenständiger Abstufung, nicht invertiert.
-- **Schriften** Bodoni Moda für Überschriften (die Haarstriche der Didone
-  entsprechen der Feinheit einer Wimpernfaser), Instrument Sans für den
-  Lauftext, IBM Plex Mono für Masse, Kennungen und Marginalien.
-- **Raster** Redaktionsspalte mit schmaler Marginalie links; Abschnitte durch
-  Haarlinien getrennt.
+- **Schriften** Fraunces für Überschriften, Zahlen und Preise, Figtree für
+  Lauftext, Labels und Bedienelemente. Beide variabel, beide lokal, zusammen
+  164 KB. Kursive Schnitte sind absichtlich nicht dabei: Sie kosteten 152 KB
+  und wurden nur für zwei Wörter gebraucht. Betonung läuft über Gewicht und
+  Farbe, `font-synthesis: none` verhindert eine gefälschte Schräge.
+- **Farben** Porzellan `#f2f1f3`, Papier `#ffffff`, abgesenktes Band
+  `#eae8ec`, Tinte `#16141a`, Lauftext `#3c3646`, Nebentext `#635d6a`, Granat
+  `#6b2f44`. Der Dunkelmodus hat eine eigenständige Abstufung, er ist nicht
+  invertiert.
+- **Aufbau** Eine Inhaltsspalte, keine Marginalie. Jeder Abschnitt beginnt mit
+  einer Marke aus Nummer, Name und Linie (`.label`) — die steht im Textfluss
+  und ist deshalb auch auf dem Telefon sichtbar. Abschnitte wechseln zwischen
+  Grundfläche und abgesenktem Band, damit sie sich voneinander abheben.
+- **Flächen** Leistungen, Pflegehinweise und das Formular sitzen in Karten
+  bzw. Tafeln auf weissem Grund (`.card`, `.panel`). Das ersetzt die frühere
+  Trennung nur über Haarlinien, bei der alle Abschnitte gleich aussahen.
 - **Signet** Die Lash Map im Kopfbereich ist das Diagramm, das vor jedem Set
   tatsächlich gezeichnet wird: sieben Zonen, Längen von 9 bis 12 mm. Sie
   zeichnet sich beim Laden von innen nach aussen auf — Lidkante, Wimpern,
@@ -135,8 +143,13 @@ Datenblatt statt Kacheln, Massangaben statt Schlagworte.
   sofort fertig.
 
 Farben und Schriftgrössen stehen als Custom Properties am Anfang von
-`styles.css`. Wer die Palette ändern will, ändert dort die sechs Werte in
-`:root` und die gleichen Namen in den beiden Dunkelmodus-Blöcken.
+`styles.css`. Wer die Palette ändern will, ändert dort die Werte in `:root`
+und die gleichen Namen in den beiden Dunkelmodus-Blöcken.
+
+Zwei Stellen sind auf die Schrift eingemessen und müssen beim Ändern von Text
+oder Schrift neu geprüft werden: `--t-h1` (die Hero-Überschrift darf nicht
+breiter werden als ihre Spalte) und die weichen Trennstellen `&shy;` in
+`Milli&shy;meter&shy;arbeit`, die nur unterhalb von 30 em greifen.
 
 ## Barrierefreiheit
 
